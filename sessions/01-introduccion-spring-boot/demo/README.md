@@ -50,8 +50,8 @@ este bloque.
 | Campo               | Valor                                                            |
 |---------------------|------------------------------------------------------------------|
 | Tipo de proyecto    | Spring Boot / Spring Initializr                                  |
-| Name                | commerce-api-s01-demo                                            |
-| Location            | ...\campus-spring-boot\sessions\01-introduccion-spring-boot\demo |
+| Name                | demo                                                             |
+| Location            | ...\campus-spring-boot\sessions\01-introduccion-spring-boot |
 | Language            | Java                                                             |
 | Build system / Type | Maven                                                            |
 | JDK                 | 21                                                               |
@@ -61,8 +61,7 @@ este bloque.
 | Artifact            | commerce-api-s01-demo                                            |
 | Package name        | edu.jhcp.springboot.commerce                                   |
 
-El prefijo ... representa la ubicación real de tu repositorio; no lo escribas literalmente. Revisa la ruta final:
-algunos asistentes añaden el nombre del proyecto. **La carpeta raíz del proyecto debe ser demo**, con el POM en demo/pom.xml. Si el asistente usa Name para crear la carpeta, utiliza demo como nombre de carpeta y cambia **Artifact** a **commerce-api-s01-demo**. No crees una carpeta adicional demo/commerce-api-s01-demo/.
+El prefijo ... representa la ubicación real de tu repositorio; no lo escribas literalmente. **Name debe ser demo**: el IDE lo añade como carpeta final al Location. Selecciona como Location la carpeta de la sesión y verifica que la ruta resultante sea sessions/01-introduccion-spring-boot/demo/, con el POM en demo/pom.xml. No dupliques demo/demo/. Mantén **Artifact** en **commerce-api-s01-demo**, aunque Name sea demo.
 
 5. **Desmarca Create Git repository** si aparece. La aplicación pertenece al repositorio existente y no debe tener un
    .git/ propio.
