@@ -2,7 +2,7 @@
 
 Curso Básico de Spring Boot.
 
-Repositorio educativo universitario de **10 sesiones de 210 minutos** (35 horas), dirigido a estudiantes con conocimientos básicos de Java y POO. El caso transversal es **Commerce API**, una aplicación de comercio electrónico cuyo catálogo evoluciona de forma progresiva.
+Repositorio educativo universitario de **10 sesiones**, dirigido a estudiantes con conocimientos básicos de Java y POO. El caso transversal es **Commerce API**, una aplicación de comercio electrónico cuyo catálogo evoluciona de forma progresiva.
 
 ## Estado actual
 
@@ -10,7 +10,7 @@ Estructura documental inicial. Todavía no hay proyectos Spring Boot, código Ja
 
 ## Herramientas previstas
 
-Java 21, Spring Boot **3.5.16**, Maven e IntelliJ IDEA Community o Ultimate. JUnit 5.12.2 administrado por Boot. Consultar [versiones, compatibilidad y limitación de soporte](COURSE-CONVENTIONS.md#stack-fijado) antes de implementar.
+Java 21, Spring Boot **3.5.16**, Maven e IntelliJ IDEA Community o Ultimate. JUnit 5.12.2 administrado por Boot. Spring Boot 3.5.16 se utiliza como base educativa local; su soporte comunitario finalizó. Antes de un despliegue productivo se debe revisar la versión y su soporte.
 
 ## Recorrido
 
@@ -29,7 +29,7 @@ Java 21, Spring Boot **3.5.16**, Maven e IntelliJ IDEA Community o Ultimate. JUn
 
 ## Cómo utilizar este repositorio
 
-1. Leer las [convenciones técnicas y pedagógicas](COURSE-CONVENTIONS.md).
+1. Revisar las herramientas previstas y el enfoque pedagógico de este README.
 2. Consultar el [mapa del curso](#evolución-de-commerce-api) y la [arquitectura progresiva](#arquitectura-progresiva-de-commerce-api).
 3. Abrir el README de la sesión y sus índices demo/ y labs/.
 4. Al implementar actividades, seguir las [normas de laboratorios](#normas-de-laboratorios) y las [plantillas documentales](README.md#plantillas-documentales).
@@ -70,7 +70,7 @@ Cada sesión parte conceptualmente de la anterior, pero su futura demo será aut
 
 Los criterios de cada fila orientan las pruebas, no describen funcionalidades ya existentes. El catálogo es el alcance obligatorio; pedidos, pagos y logística pueden discutirse como extensiones posteriores al curso.
 
-La distribución exacta de 210 minutos y el nivel progresivo de pruebas están en [las convenciones](COURSE-CONVENTIONS.md). Cada README de sesión concreta objetivos, límites y actividades.
+Cada README de sesión concreta objetivos, límites, actividades y comprobaciones acordes con el nivel de aprendizaje.
 
 ## Arquitectura progresiva de Commerce API
 
@@ -113,7 +113,7 @@ Sesión 10: comparar JAR ejecutable con WAR para Tomcat externo 10.1 compatible 
 
 Cada instantánea deberá ejecutarse y probarse sin otras sesiones. Priorizar pruebas unitarias para reglas, integración acotada para persistencia y pruebas HTTP para contratos. En seguridad cubrir resultados permitidos y denegados; CORS no sustituye autenticación ni autorización. No desactivar CSRF sin explicar el modelo de credenciales y su riesgo.
 
-El stack y la limitación de soporte de Boot se registran en [las convenciones](COURSE-CONVENTIONS.md). Esta arquitectura no pretende ser una plataforma de producción.
+Las herramientas previstas y la limitación de soporte de Boot se describen al inicio de este README. Esta arquitectura no pretende ser una plataforma de producción.
 
 ## Normas de laboratorios
 
@@ -158,16 +158,27 @@ Comprobar que el material inicial no contiene la solución, las rutas son válid
 
 ## Distribución del tiempo
 
-Se mantienen los 210 minutos institucionales. El bloque práctico ocupa **60 minutos en total**: la demo guiada, incluidas sus pruebas y depuración, debe caber en ese tiempo. Si termina antes, los estudiantes pueden avanzar en los labs durante los minutos restantes. No se reservan 90 minutos adicionales ni se garantiza completar los labs en clase. Los otros 150 minutos se destinan al desarrollo conceptual, análisis y diseño según la planificación docente.
+El bloque práctico ocupa **60 minutos en total**: la demo guiada, incluidas sus pruebas y depuración, debe caber en ese tiempo. Si termina antes, los estudiantes pueden avanzar en los labs durante los minutos restantes. No se garantiza completar los labs en clase.
 
 ## Estructura del monorepo
 
-La raíz contiene README.md, COURSE-CONVENTIONS.md, .gitignore, .editorconfig y sessions/. No hay carpetas docs/ ni templates/ en la raíz: su documentación se integra en este README.
+El repositorio público contiene:
 
-Cada sesión tiene README.md, demo/README.md, labs/README.md y una carpeta docs/ vacía para material futuro. Estas carpetas docs/ se crean localmente sin archivos de relleno; Git no conserva directorios vacíos al clonar.
+```text
+campus-spring-boot/
+├── README.md
+├── .gitignore
+├── .editorconfig
+└── sessions/
+    └── NN-tema/
+        ├── README.md
+        ├── demo/
+        │   └── README.md
+        └── labs/
+            └── README.md
+```
 
-El .gitignore permite únicamente los archivos principales de la raíz y el árbol sessions/, con exclusiones internas para archivos generados, configuración del IDE y secretos. Los futuros proyectos propios de las sesiones podrán versionarse dentro de ese árbol.
-
+La estructura de sesión se repite para los diez temas del recorrido. Cada demo y laboratorio alojará su proyecto Maven independiente cuando se implemente.
 ## Plantillas documentales
 
 ### Plantilla de demo
