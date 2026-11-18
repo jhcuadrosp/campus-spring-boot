@@ -10,7 +10,7 @@ reconocer sus archivos, ejecutarlo, interpretar los logs y corregir un error de 
 Java es el lenguaje; JDK 21 permite compilar y ejecutar; Maven gestiona el proyecto; Spring Boot configura y arranca la
 aplicación. Spring Web incorpora el servidor embebido: no necesitas instalar Tomcat por separado.
 
-No crearemos controladores ni endpoints propios, ni añadiremos JPA, seguridad o bases de datos. El diseño REST
+Se incluye un controller básico de bienvenida que devuelve JSON. No añadiremos JPA, seguridad o bases de datos. El diseño completo de API REST
 corresponde a la sesión 05.
 
 ## Tiempo de la práctica
@@ -124,7 +124,7 @@ En la vista **Project**, localiza:
 | mvnw, mvnw.cmd y .mvn/                        | Maven Wrapper                                 |
 | target/                                       | Resultado de compilación; no se versiona      |
 
-1. Abre la clase principal e identifica main y la llamada a SpringApplication.run(...). No añadas otras clases.
+1. Abre la clase principal e identifica main y la llamada a SpringApplication.run(...). Revisa también WelcomeController en el subpaquete controller; su explicación está en el README de la sesión.
 2. Abre application.properties y establece o comprueba:
 
 ```properties
@@ -139,8 +139,8 @@ spring.application.name=commerce-api-s01-demo
 2. Abre la ventana **Run** y espera al mensaje Started ...Application.
 3. Localiza el mensaje de arranque de Tomcat y su puerto, normalmente **8080**. La aplicación permanece ejecutándose
    hasta que la detengas.
-4. Abre http://localhost:8080/ en el navegador.
-5. Es esperable recibir **404** o una página de error predeterminada: aún no existe una ruta para /. Esto es diferente
+4. Abre http://localhost:8080/api/welcome en el navegador y comprueba el JSON de bienvenida descrito en el [README de la sesión](../README.md#primer-controller-bienvenida-en-json).
+5. Si consultas únicamente http://localhost:8080/, es esperable recibir **404** o una página de error predeterminada: aún no existe una ruta para /. Esto es diferente
    de «conexión rechazada», que indica que no pudiste conectar con el servidor en ese puerto.
 6. Registra el nombre, el puerto y el mensaje de arranque. No necesitas escribir pruebas JUnit en esta sesión.
 7. Pulsa **Stop**. Actualiza el navegador para comprobar que ese proceso ya no atiende peticiones.
@@ -162,7 +162,7 @@ server.port=8081
 ```
 
 5. Ejecuta otra vez y verifica el puerto 8081 en los logs.
-6. Abre http://localhost:8081/: el 404 sigue siendo esperado sin controladores.
+6. Abre http://localhost:8081/api/welcome y comprueba el JSON de bienvenida en el nuevo puerto.
 7. Detén la aplicación y elimina server.port si quieres volver al puerto predeterminado 8080.
 
 | Problema                                   | Qué revisar                                                                       |
@@ -172,7 +172,7 @@ server.port=8081
 | Dependencias sin resolver                  | Maven home path en Bundled (Maven 3), conexión, modo offline y recarga del proyecto                            |
 | No aparece Run                             | Importación terminada, POM correcto y JDK configurado                             |
 | Navegador sin conexión                     | Proceso en ejecución y puerto indicado en los logs                                |
-| 404 en la raíz                             | Resultado previsto: no existe una ruta propia                                     |
+| 404 en la raíz                             | Resultado previsto en /; la ruta implementada es /api/welcome                                     |
 
 ## 8. Mejora, cierre y evidencia
 
